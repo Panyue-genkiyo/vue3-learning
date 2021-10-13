@@ -44,7 +44,8 @@ export default {
     watchEffect(() => {
       console.log(`watch effect指定的回调执行了！！`)
       //依赖收集,你用到了谁它就监视谁！！
-      //这里用到sum了
+      //这里用到sum, person.job.j1.salary了,所以可以被监视到(只要它们发生变化就重新执行watchEffect)
+      //与computed有点类似，依赖收集.(侧重点不一致,watchEffect注重过程,而computed注重计算函数的返回值)
       const x1 = sum.value;
       const x2 = person.job.j1.salary;
     })

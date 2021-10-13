@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v3响应式</title>
+</head>
+<body>
+    <script type="text/javascript">
+        let person = {
+            name: '张三',
+            age: 18
+        };
+
+        //模拟vue2中的响应式
+        // let p = {};
+        // Object.defineProperty(p, 'name', {
+        //     get(){
+        //         //get name
+        //         return person.name;
+        //     },
+        //     set(value){
+        //         //set name
+        //         console.log('name changed, must change the page');
+        //         person.name = value;
+        //     }
+        // })
+        //
+        // Object.defineProperty(p, 'age', {
+        //     configurable: true,
+        //     get(){
+        //         //get age
+        //         return person.age;
+        //     },
+        //     set(value){
+        //         //set age
+        //         console.log('age changed, must change the page');
+        //         person.age = value;
+        //     }
+        // })
+
+        //vue3的响应式
+        const p = new Proxy(person,{
+            //读取
+            get(target, propName){
+                //person ==> target
+                console.log('读取');
+                return Reflect.get(target,propName);
+            },
+            set(target, propName, value) {
+                // 修改和增加属性都调用
+                console.log('修改');
+                Reflect.set(target, propName, value);
+            },
+            //删除
+            deleteProperty(target, propName) {
+                console.log(`删除`);
+                return Reflect.deleteProperty(target, propName);
+            }
+        });
+
+        // let obj = {
+        //     a:1,
+        //     b:2
+        // }
+        //
+        // const x1 = Reflect.defineProperty(obj, 'c',{
+        //     get(){
+        //         return 3;
+        //     }
+        // });
+        // console.log(x1); //true 成
+        // const x2 = Reflect.defineProperty(obj, 'c',{
+        //     get(){
+        //         return 4;
+        //     }
+        // });
+        // if(x2){
+        //     console.log(x2); //false 否
+        // }
+        // Reflect.get(obj,'a');
+    </script>
+</body>
+</html>

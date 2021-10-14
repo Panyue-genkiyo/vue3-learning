@@ -552,6 +552,41 @@ npm run dev
       ```
 
 
+
+
+
+
+
+
+
+
+
+
+## 2.Composition API 的优势
+
+我们可以更加优雅的组织我们的代码，函数。让相关功能的代码更加有序的组织在一起。
+
+<div style="width:500px;height:340px;overflow:hidden;float:left">
+    <img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bc0be8211fc54b6c941c036791ba4efe~tplv-k3u1fbpfcp-watermark.image"style="height:360px"/>
+</div>
+<div style="width:430px;height:340px;overflow:hidden;float:left">
+    <img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6cc55165c0e34069a75fe36f8712eb80~tplv-k3u1fbpfcp-watermark.image"style="height:360px"/>
+</div>
+
+
+
+
+# 五、新的组件
+
+## 1.Fragment
+
+- 在Vue2中: 组件必须有一个根标签
+- 在Vue3中: 组件可以没有根标签, 内部会将多个标签包含在一个Fragment虚拟元素中
+- 好处: 减少标签层级, 减小内存占用
+
+
+
+
 # 六、其他
 
 ## 1.全局API的转移
@@ -580,7 +615,7 @@ npm run dev
     - 将全局的API，即：```Vue.xxx```调整到应用实例（```app```）上
 
       | 2.x 全局 API（```Vue```） | 3.x 实例 API (`app`)                        |
-          | ------------------------- | ------------------------------------------- |
+                | ------------------------- | ------------------------------------------- |
       | Vue.config.xxxx           | app.config.xxxx                             |
       | Vue.config.productionTip  | <strong style="color:#DD5145">移除</strong> |
       | Vue.component             | app.component                               |
@@ -650,42 +685,6 @@ npm run dev
   > 过滤器虽然这看起来很方便，但它需要一个自定义语法，打破大括号内表达式是 “只是 JavaScript” 的假设，这不仅有学习成本，而且有实现成本！建议用方法调用或计算属性去替换过滤器。
 
 - ......
-
-
-
-
-
-
-
-
-
-
-
-## 2.Composition API 的优势
-
-我们可以更加优雅的组织我们的代码，函数。让相关功能的代码更加有序的组织在一起。
-
-<div style="width:500px;height:340px;overflow:hidden;float:left">
-    <img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bc0be8211fc54b6c941c036791ba4efe~tplv-k3u1fbpfcp-watermark.image"style="height:360px"/>
-</div>
-<div style="width:430px;height:340px;overflow:hidden;float:left">
-    <img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6cc55165c0e34069a75fe36f8712eb80~tplv-k3u1fbpfcp-watermark.image"style="height:360px"/>
-</div>
-
-
-
-
-# 五、新的组件
-
-## 1.Fragment
-
-- 在Vue2中: 组件必须有一个根标签
-- 在Vue3中: 组件可以没有根标签, 内部会将多个标签包含在一个Fragment虚拟元素中
-- 好处: 减少标签层级, 减小内存占用
-
-
-
-
 
 
 
